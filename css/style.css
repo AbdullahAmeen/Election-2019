@@ -3,5 +3,56 @@
 }
 
 h4{
-    line-height:18px
+    font-size: 14px;
+    color:white;
+    text-align: center;
+    
 }
+
+.leaflet-popup-content{
+    background: rgb(1, 24, 24);
+    color:white;
+    margin: 1px 0 0 ;
+    border-radius: 10px;
+    border: 1px solid red;
+    padding: 5px;
+}
+.leaflet-popup-content-wrapper{
+  padding: 0;
+  text-align:justify;
+}
+
+.legend {
+    padding: 6px 8px;
+    font: 14px Arial, Helvetica, sans-serif;
+    background: rgba(103, 105, 104, 0.8);
+    border-radius: 8px;
+    border:1px solid red;
+    line-height: 24px;
+    color: rgb(250, 245, 245);
+  }
+  .legend h4 {
+    text-align: center;
+    font-size: 16px;
+    margin: 2px 12px 8px;
+    color: rgb(248, 241, 241);
+  }
+  
+  .legend i {
+    width: 25px;
+    height: 18px;
+    border-radius: 2px;
+    float: left;
+    margin: 0 8px 0 0;
+    opacity: 0.9;
+  }
+
+  .Title{
+      border:1px solid red;
+      width: 350px;
+      height: 40px;
+      margin-left: 150px;
+      text-align: center;
+      margin-top: -50px;
+  }
+  
