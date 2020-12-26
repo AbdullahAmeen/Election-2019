@@ -2,9 +2,9 @@ let map = L.map('map', {
   measureControl:true,
   zoomSnap: 0.25,
   zoomControl:true, maxZoom:45, minZoom:1,
-  zoomDelta: 2,
+  zoomDelta: 1,
   zoom: 12,
-}).setView([34.0553, 67.0075], 6.6);
+}).setView([34.2553, 67.5875], 6.2);
 
 let basemap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
       
@@ -63,7 +63,7 @@ L.Control.textbox = L.Control.extend({
     
   var text = L.DomUtil.create('div');
   text.id = "info_text";
-  text.innerHTML = "<div class='Title'> <h1>Places I Have Worked </h1></div>"
+  text.innerHTML = "<div class='Title'> <h2>Afghanistan Election - 2019 </h2></div>"
   return text;
   },
 
@@ -71,5 +71,8 @@ L.Control.textbox = L.Control.extend({
     // Nothing to do here
   }
 });
+
 L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
 L.control.textbox({ position: 'topleft' }).addTo(map);
+
+L.control.scale().addTo(map);

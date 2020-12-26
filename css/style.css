@@ -1,5 +1,11 @@
-#map{
-    height: 950px;
+
+body {
+  padding: 0;
+  margin: 0;
+}
+html, body, #map {
+  height: 100%;
+  width: 100vw;
 }
 
 h4{
@@ -25,9 +31,9 @@ h4{
 .legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
-    background: rgba(103, 105, 104, 0.8);
+    background: #888d8acc;
     border-radius: 8px;
-    border:1px solid red;
+    border:1px solid #d32121;
     line-height: 24px;
     color: rgb(250, 245, 245);
   }
@@ -48,11 +54,31 @@ h4{
   }
 
   .Title{
-      border:1px solid red;
-      width: 350px;
-      height: 40px;
-      margin-left: 150px;
+      border:0.5px solid red;
+      width: auto;
+      height: auto;
       text-align: center;
-      margin-top: -50px;
+      margin-top: -60px;
+      background-color: rgb(13, 52, 63);
+      opacity: 0.6;
+      color: white;
+      border-radius: 10px;
   }
   
+  .container{
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .leaflet-control-attribution{
+    border-top:0.1px solid red;
+    border-left:0.1px solid red;
+    border-radius: 3px;
+  }
+
+  .leaflet-control-scale-line{
+    background-color: rgb(0, 0, 0);
+    color: white;
+    height: 20px;
+    text-align: center;
+  }
