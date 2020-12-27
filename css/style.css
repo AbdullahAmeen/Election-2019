@@ -3,7 +3,7 @@ body {
   padding: 0;
   margin: 0;
 }
-html, body, #map {
+html, body {
   height: 100%;
   width: 100vw;
 }
@@ -20,18 +20,20 @@ h4{
     color:white;
     margin: 1px 0 0 ;
     border-radius: 10px;
-    border: 1px solid red;
+    border: 0 solid rgb(241, 187, 38);
     padding: 5px;
+    width: 190px;
 }
 .leaflet-popup-content-wrapper{
-  padding: 0;
-  text-align:justify;
+
+  border:2px solid rgb(226, 195, 16);
+  background-color: rgb(0, 14, 11);
 }
 
 .legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
-    background: #888d8acc;
+    background: #9a9e9bcc;
     border-radius: 8px;
     border:1px solid #d32121;
     line-height: 24px;
@@ -81,4 +83,14 @@ h4{
     color: white;
     height: 20px;
     text-align: center;
+  }
+
+  .leaflet-container {
+    background-color: rgb(217, 226, 235);
+  }
+
+  .metadata{
+    background-color: rgb(217, 226, 235);
+    padding: 20px;
+    border:1px solid #e76d08;
   }

@@ -1,25 +1,15 @@
+//Setting up the map.
 let map = L.map('map', {
-  measureControl:true,
   zoomSnap: 0.25,
-  zoomControl:true, maxZoom:45, minZoom:1,
+  zoomControl:true, 
+  maxZoom:45, 
+  minZoom:1,
   zoomDelta: 1,
-  zoom: 12,
-}).setView([34.2553, 67.5875], 6.2);
-
-let basemap = L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
-      
-
-		attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, ' +
-			'<a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
-			'Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-		id: 'mapbox/streets-v11'
-	}).addTo(map);
+}).setView([34.2553, 67.5875], 6.4);
 
 
-
-
-
-$.getJSON("data/datafile.geojson",function(electionData){
+// Loading the geojson file using jQuery.
+let datafile = $.getJSON("data/datafile.geojson",function(electionData){
     L.geoJson( electionData, {
       style: function(feature){
         var fillColor,
@@ -30,7 +20,7 @@ $.getJSON("data/datafile.geojson",function(electionData){
         else if ( density > 40000 ) fillColor = "#7fcdbb";
         else if ( density > 10000 ) fillColor = "#c7e9b4";
         else if ( density > 4000 ) fillColor = "#ffffcc";
-        return { color: "#2e0404", weight: 0.4, fillColor: fillColor, fillOpacity: .8 };
+        return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: .8, };
       },
       onEachFeature: function( feature, layer ){
 		layer.bindPopup("<h4>"+ "Province Name: " + feature.properties.Province + "<br>" + "Total Votes Cast: " + feature.properties.VotesCast + "<br>"+
@@ -40,7 +30,7 @@ $.getJSON("data/datafile.geojson",function(electionData){
     }).addTo(map);
   });
 
-
+// Adding the legend to the map
 var legend = L.control({ position: "bottomright" });
 
 legend.onAdd = function(map) {
@@ -58,21 +48,67 @@ legend.onAdd = function(map) {
 
 legend.addTo(map);
 
+// Adding the titel to the map
 L.Control.textbox = L.Control.extend({
   onAdd: function(map) {
     
   var text = L.DomUtil.create('div');
   text.id = "info_text";
-  text.innerHTML = "<div class='Title'> <h2>Afghanistan Election - 2019 </h2></div>"
+  text.innerHTML = "<div class='Title'> <h2>Afghan Presidential Election - 2019 </h2></div>"
   return text;
   },
 
   onRemove: function(map) {
-    // Nothing to do here
+  
   }
 });
 
 L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
 L.control.textbox({ position: 'topleft' }).addTo(map);
 
+// Adding the scal bar
 L.control.scale().addTo(map);
+
+
+
+// Adding highlighting properties
+function highlightFeature(e) {
+  var layer = e.target;
+
+  layer.setStyle({
+    weight: 5,
+    color: '#666',
+    dashArray: '',
+    fillOpacity: 0.7
+  });
+
+  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
+    layer.bringToFront();
+  }
+
+  info.update(layer.feature.properties);
+}
+
+var geojson;
+
+function resetHighlight(e) {
+  geojson.resetStyle(e.target);
+  info.update();
+}
+
+function zoomToFeature(e) {
+  map.fitBounds(e.target.getBounds());
+}
+
+function onEachFeature(feature, layer) {
+  layer.on({
+    mouseover: highlightFeature,
+    mouseout: resetHighlight,
+    click: zoomToFeature
+  });
+}
+
+geojson = L.geoJson(datafile, {
+  style: style,
+  onEachFeature: onEachFeature
+}).addTo(map);
