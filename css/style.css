@@ -12,9 +12,12 @@ h4{
     font-size: 14px;
     color:white;
     text-align: center;
-    
 }
 
+h5{
+  text-align: center;
+  font-size: 23px;
+}
 .leaflet-popup-content{
     background: rgb(1, 24, 24);
     color:white;
@@ -22,7 +25,8 @@ h4{
     border-radius: 10px;
     border: 0 solid rgb(241, 187, 38);
     padding: 5px;
-    width: 190px;
+    width: 170px;
+    height: 95px;
 }
 .leaflet-popup-content-wrapper{
 
@@ -33,7 +37,7 @@ h4{
 .legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
-    background: #9a9e9bcc;
+    background: #777a78cc;
     border-radius: 8px;
     border:1px solid #d32121;
     line-height: 24px;
@@ -52,19 +56,32 @@ h4{
     border-radius: 2px;
     float: left;
     margin: 0 8px 0 0;
-    opacity: 0.9;
+    opacity: 1;
   }
 
-  .Title{
-      border:0.5px solid red;
-      width: auto;
-      height: auto;
-      text-align: center;
-      margin-top: -60px;
-      background-color: rgb(13, 52, 63);
-      opacity: 0.6;
-      color: white;
-      border-radius: 10px;
+  .leaflet-left {
+    width: 100%;
+  }
+  
+  #info_text {
+    width: 100%;
+  }
+
+  .Title {
+    margin-top: -60px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .Title h2 {
+    border:1px solid red;
+    background-color: rgb(28, 31, 31);
+    opacity: 0.6;
+    color: white;
+    border-radius: 8px;
+    padding-left: 6px;
+    padding-right: 6px;
+
   }
   
   .container{
@@ -93,4 +110,20 @@ h4{
     background-color: rgb(217, 226, 235);
     padding: 20px;
     border:1px solid #e76d08;
+  }
+
+  .electionwebsite{
+    text-decoration: none;
+  }
+
+  .candiatephoto{
+    border: 0.1px solid rgb(243, 39, 12);
+    border-radius: 50%;
+    height: 50px;
+    width: 48px;
+    box-shadow: 0px 0px 7px 1px #616159;
+  }
+
+  .candidateslist a{
+    text-decoration: none;
   }

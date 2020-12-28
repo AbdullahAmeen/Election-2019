@@ -1,33 +1,69 @@
 //Setting up the map.
 let map = L.map('map', {
+  center: [34.2553, 67.5875],
   zoomSnap: 0.25,
   zoomControl:true, 
   maxZoom:45, 
-  minZoom:1,
+  minZoom:0,
   zoomDelta: 1,
-}).setView([34.2553, 67.5875], 6.4);
+  zoom: 6.35
+});
+
+// Adding the highlighs.
+function highlightFeature(e) {
+  e.target.setStyle({
+
+     color: '#030809',
+     fillOpacity:1,
+ });
+}
+
+function myOnEachFeature(feature, layer) {
+ layer.on({
+      mouseover: highlightFeature,
+     mouseout: unHighlightFeature,
+ });
+}
+
+
+function unHighlightFeature(e) {
+ e.target.setStyle({
+      color: "000000",
+ });
+}
 
 
 // Loading the geojson file using jQuery.
+function chooseColor(density){
+  if ( density > 115000 ) return "#253494";
+		else if ( density > 90000 ) return "#2c7fb8";
+        else if ( density > 70000 ) return "#41b6c4";
+        else if ( density > 40000 ) return "#7fcdbb";
+        else if ( density > 10000 ) return "#c7e9b4";
+        else if ( density > 4000 ) return "#ffffcc";
+};
+
 let datafile = $.getJSON("data/datafile.geojson",function(electionData){
     L.geoJson( electionData, {
       style: function(feature){
-        var fillColor,
-            density = feature.properties.VotesCast;
-		if ( density > 115000 ) fillColor = "#253494";
-		else if ( density > 90000 ) fillColor = "#2c7fb8";
-        else if ( density > 70000 ) fillColor = "#41b6c4";
-        else if ( density > 40000 ) fillColor = "#7fcdbb";
-        else if ( density > 10000 ) fillColor = "#c7e9b4";
-        else if ( density > 4000 ) fillColor = "#ffffcc";
+        var fillColor = chooseColor(feature.properties.VotesCast);
+
         return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: .8, };
       },
-      onEachFeature: function( feature, layer ){
-		layer.bindPopup("<h4>"+ "Province Name: " + feature.properties.Province + "<br>" + "Total Votes Cast: " + feature.properties.VotesCast + "<br>"+
+
+      onEachFeature:
+      myOnEachFeature,
+      /* function( feature, layer ){
+		layer.bindPopup("<h4>"+ "Province: " + feature.properties.Province + "<br>" + "Total Votes Cast: " + feature.properties.VotesCast + "<br>"+
 		 "Dr. Abdullah: " + feature.properties.Abdullah + "<br>" + "Dr. Ghani: " + feature.properties.Ghani +
-		 "<br>" + "Others: " + feature.properties.Others + "</h4>" )
-      }
-    }).addTo(map);
+		 "<br>" + "Other: " + feature.properties.Others + "</h4>" )
+      }*/
+    }).bindPopup(function(layer ){
+      return ("<h4>"+ "Province: " + layer.feature.properties.Province + "<br>" + "Total Votes Cast: " + layer
+      .feature.properties.VotesCast + "<br>"+ "Dr. Abdullah: " + layer.feature.properties.Abdullah + "<br>" + "Dr. Ghani: " + layer.feature.properties.Ghani +
+       "<br>" + "Other: " + layer.feature.properties.Others + "</h4>" )
+        }).addTo(map);
+    
   });
 
 // Adding the legend to the map
@@ -70,45 +106,25 @@ L.control.textbox({ position: 'topleft' }).addTo(map);
 L.control.scale().addTo(map);
 
 
-
-// Adding highlighting properties
 function highlightFeature(e) {
-  var layer = e.target;
+  e.target.setStyle({
 
-  layer.setStyle({
-    weight: 5,
-    color: '#666',
-    dashArray: '',
-    fillOpacity: 0.7
-  });
-
-  if (!L.Browser.ie && !L.Browser.opera && !L.Browser.edge) {
-    layer.bringToFront();
-  }
-
-  info.update(layer.feature.properties);
+     fillColor: '#e5ef16',
+ });
 }
 
-var geojson;
 
-function resetHighlight(e) {
-  geojson.resetStyle(e.target);
-  info.update();
-}
-
-function zoomToFeature(e) {
-  map.fitBounds(e.target.getBounds());
-}
-
-function onEachFeature(feature, layer) {
+function myOnEachFeature(feature, layer) {
   layer.on({
-    mouseover: highlightFeature,
-    mouseout: resetHighlight,
-    click: zoomToFeature
+      mouseover: highlightFeature,
+      mouseout: unHighlightFeature,
   });
 }
 
-geojson = L.geoJson(datafile, {
-  style: style,
-  onEachFeature: onEachFeature
-}).addTo(map);
+
+function unHighlightFeature(e) {
+  e.target.setStyle({
+
+    fillColor: chooseColor(e.target.feature.properties.VotesCast)
+});
+}
