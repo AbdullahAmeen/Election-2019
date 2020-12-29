@@ -130,10 +130,11 @@ h5{
 
   .clickhere  {
     font-size: 18px;
+    text-decoration: none;
   }
   
   .checkmark{
-    font-size: 28px;
+    font-size: 25px;
     color:red;
   }
   .candiatephoto2{
@@ -142,4 +143,24 @@ h5{
     height: 104px;
     width: 98px;
     box-shadow: 0px 0px 7px 1px #616159;
+  }
+
+  .candidatebio {
+    text-decoration: none;
+  }
+
+  h6{
+    border:0.1px solid red;
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: rgb(3, 38, 58);
+    color: rgb(240, 240, 240);
+    padding-bottom: 3px;
+  }
+
+  .piechart{
+    text-align: center;
+
   }
