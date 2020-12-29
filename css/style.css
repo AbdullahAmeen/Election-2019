@@ -73,7 +73,7 @@ h5{
     justify-content: center;
   }
   
-  .Title h2 {
+  .Title h3 {
     border:1px solid red;
     background-color: rgb(28, 31, 31);
     opacity: 0.6;
@@ -119,11 +119,27 @@ h5{
   .candiatephoto{
     border: 0.1px solid rgb(243, 39, 12);
     border-radius: 50%;
-    height: 50px;
-    width: 48px;
+    height: 100px;
+    width: 100px;
     box-shadow: 0px 0px 7px 1px #616159;
   }
 
   .candidateslist a{
     text-decoration: none;
+  }
+
+  .clickhere  {
+    font-size: 18px;
+  }
+  
+  .checkmark{
+    font-size: 28px;
+    color:red;
+  }
+  .candiatephoto2{
+    border: 0.1px solid rgb(243, 39, 12);
+    border-radius: 50%;
+    height: 104px;
+    width: 98px;
+    box-shadow: 0px 0px 7px 1px #616159;
   }

@@ -90,7 +90,7 @@ L.Control.textbox = L.Control.extend({
     
   var text = L.DomUtil.create('div');
   text.id = "info_text";
-  text.innerHTML = "<div class='Title'> <h2>Afghan Presidential Election - 2019 </h2></div>"
+  text.innerHTML = "<div class='Title'> <h3>Afghan Presidential Election - 2019 </h3></div>"
   return text;
   },
 
