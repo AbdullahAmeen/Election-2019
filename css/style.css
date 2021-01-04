@@ -25,7 +25,7 @@ h5{
     border-radius: 10px;
     border: 0 solid rgb(241, 187, 38);
     padding: 5px;
-    width: 170px;
+    width: 160px;
     height: 95px;
 }
 .leaflet-popup-content-wrapper{
@@ -158,9 +158,4 @@ h5{
     background: rgb(3, 38, 58);
     color: rgb(240, 240, 240);
     padding-bottom: 3px;
-  }
-
-  .piechart{
-    text-align: center;
-
   }

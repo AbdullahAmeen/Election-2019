@@ -1,13 +1,13 @@
 //Setting up the map.
+
 let map = L.map('map', {
-  center: [34.2553, 67.5875],
-  zoomSnap: 0.25,
-  zoomControl:true, 
-  maxZoom:45, 
-  minZoom:0,
-  zoomDelta: 1,
-  zoom: 6.35
-});
+    measureControl:true,
+    zoomSnap: 0.25,
+    zoomControl:true, maxZoom:45, minZoom:1,
+    center: [34.2553, 67.5875],
+    zoomDelta: 0.25,
+    zoom: 6.35,
+})
 
 // Adding the highlighs.
 function highlightFeature(e) {
