@@ -108,7 +108,10 @@ h5{
 
   .metadata{
     background-color: rgb(217, 226, 235);
-    padding: 20px;
+    padding-top: 18px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 10px;
     border:1px solid #e76d08;
   }
 
