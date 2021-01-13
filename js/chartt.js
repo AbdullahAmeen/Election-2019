@@ -4,10 +4,11 @@ new Chart(document.getElementById("myChart"), {
     labels: ["Dr. Ghani", "Dr. Abdullah", "Other"],
     datasets: [{
       data: [923864,720988,179539],
-      backgroundColor: ["#1a9641", "#a6d96a","#ffffbf"],
-      borderColor: "red",
-      borderWidth: 0.3,
+      backgroundColor: ["#071a84", "#6c79c6","#3ac8ef"],
+      borderColor: "black",
+      borderWidth: 0.5,
       hoverBackgroundColor:'#ffef',
+
     }]
   },
   options:{
