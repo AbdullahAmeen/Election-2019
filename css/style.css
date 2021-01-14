@@ -162,23 +162,3 @@ h5{
     color: rgb(240, 240, 240);
     padding-bottom: 3px;
   }
-  .hompagecover1{
-    width: 55px;
-    height: 54px;
-    border-radius: 30px;
-    display: inline-block;
-    padding: 2px;
-  }
-  .navbar-darked{
-  background-color: #116980;
-  box-shadow: 2px 2px 2px 2px black;
-  padding: 5px;
-  height: 60px;
-}
-.navbar-darked a{
-  text-decoration: none;
-}
-.ReturnText{
-  color:white;
-  font-size: 20px;
-}

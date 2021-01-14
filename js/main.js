@@ -32,8 +32,7 @@ function unHighlightFeature(e) {
  });
 }
 
-
-// Loading the geojson file using jQuery.
+// Adding color to the map to make it thematic
 function chooseColor(density){
   if ( density > 115000 ) return "#253494";
 		else if ( density > 90000 ) return "#2c7fb8";
@@ -43,6 +42,7 @@ function chooseColor(density){
         else if ( density > 4000 ) return "#ffffcc";
 };
 
+// Loading the geojson file using jQuery.
 let datafile = $.getJSON("data/datafile.geojson",function(electionData){
     L.geoJson( electionData, {
       style: function(feature){
@@ -53,17 +53,12 @@ let datafile = $.getJSON("data/datafile.geojson",function(electionData){
 
       onEachFeature:
       myOnEachFeature,
-      /* function( feature, layer ){
-		layer.bindPopup("<h4>"+ "Province: " + feature.properties.Province + "<br>" + "Total Votes Cast: " + feature.properties.VotesCast + "<br>"+
-		 "Dr. Abdullah: " + feature.properties.Abdullah + "<br>" + "Dr. Ghani: " + feature.properties.Ghani +
-		 "<br>" + "Other: " + feature.properties.Others + "</h4>" )
-      }*/
+
     }).bindPopup(function(layer ){
       return ("<h4>"+ "Province: " + layer.feature.properties.Province + "<br>" + "Total Votes Cast: " + layer
       .feature.properties.VotesCast + "<br>"+ "Dr. Abdullah: " + layer.feature.properties.Abdullah + "<br>" + "Dr. Ghani: " + layer.feature.properties.Ghani +
        "<br>" + "Other: " + layer.feature.properties.Others + "</h4>" )
         }).addTo(map);
-    
   });
 
 // Adding the legend to the map
@@ -84,7 +79,8 @@ legend.onAdd = function(map) {
 
 legend.addTo(map);
 
-// Adding the titel to the map
+
+// Adding  title to the map
 L.Control.textbox = L.Control.extend({
   onAdd: function(map) {
     
@@ -102,10 +98,12 @@ L.Control.textbox = L.Control.extend({
 L.control.textbox = function(opts) { return new L.Control.textbox(opts);}
 L.control.textbox({ position: 'topleft' }).addTo(map);
 
+
 // Adding the scal bar
 L.control.scale().addTo(map);
 
 
+// Adding highlight and de highlights
 function highlightFeature(e) {
   e.target.setStyle({
 
@@ -113,14 +111,12 @@ function highlightFeature(e) {
  });
 }
 
-
 function myOnEachFeature(feature, layer) {
   layer.on({
       mouseover: highlightFeature,
       mouseout: unHighlightFeature,
   });
 }
-
 
 function unHighlightFeature(e) {
   e.target.setStyle({
