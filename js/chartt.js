@@ -1,3 +1,5 @@
+// Create a pie chart using Chart.JS
+
 new Chart(document.getElementById("myChart"), {
   type: 'pie',
   data: {

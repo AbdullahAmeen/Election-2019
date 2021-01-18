@@ -9,9 +9,15 @@ html, body {
 }
 
 h4{
-    font-size: 14px;
+    font-size: 12px;
     color:white;
-    text-align: center;
+    text-align: left;
+}
+h3{
+  font-size: 15px;
+  color:rgb(230, 212, 52);
+  text-align: center;
+  
 }
 
 h5{
@@ -25,8 +31,8 @@ h5{
     border-radius: 10px;
     border: 0 solid rgb(241, 187, 38);
     padding: 5px;
-    width: 170px;
-    height: 95px;
+    width: 210px;
+    height: 195px;
 }
 .leaflet-popup-content-wrapper{
 
@@ -73,7 +79,7 @@ h5{
     justify-content: center;
   }
 
-  .Title h3 {
+  .Title h2 {
     border:1px solid red;
     background-color: rgb(28, 31, 31);
     opacity: 0.6;

@@ -43,7 +43,7 @@ function chooseColor(density){
 };
 
 // Loading the geojson file using jQuery.
-let datafile = $.getJSON("data/datafile.geojson",function(electionData){
+let datafile = $.getJSON("data/datafile1.geojson",function(electionData){
     L.geoJson( electionData, {
       style: function(feature){
         var fillColor = chooseColor(feature.properties.VotesCast);
@@ -55,9 +55,8 @@ let datafile = $.getJSON("data/datafile.geojson",function(electionData){
       myOnEachFeature,
 
     }).bindPopup(function(layer ){
-      return ("<h4>"+ "Province: " + layer.feature.properties.Province + "<br>" + "Total Votes Cast: " + layer
-      .feature.properties.VotesCast + "<br>"+ "Dr. Abdullah: " + layer.feature.properties.Abdullah + "<br>" + "Dr. Ghani: " + layer.feature.properties.Ghani +
-       "<br>" + "Other: " + layer.feature.properties.Others + "</h4>" )
+      return ("<h4>"+ "<h3>" + "Province : " + layer.feature.properties.Province + "</h3>" + "Total Votes Cast : " + layer.feature.properties.VotesCast + "<br>"+ "Votes Cast for Dr. Abdullah : " + layer.feature.properties.Abdullah + "<br>" + "Votes Cast for Dr. Ghani : " + layer.feature.properties.Ghani +
+       "<br>" + "Votes Cast for Others : " + layer.feature.properties.Others + "<br>"+ "Percentage Dr. Abdullah : " + layer.feature.properties.Perc_Abdul  + "<br>"+ "Percentage Dr. Ghani : "+ layer.feature.properties.Perc_Ghani  + "<br>"+ "Percentange Other : "+ layer.feature.properties.Perc_Other +"</h4>" )
         }).addTo(map);
   });
 
@@ -86,7 +85,7 @@ L.Control.textbox = L.Control.extend({
     
   var text = L.DomUtil.create('div');
   text.id = "info_text";
-  text.innerHTML = "<div class='Title'> <h3>Afghan Presidential Election - 2019 </h3></div>"
+  text.innerHTML = "<div class='Title'> <h2>Afghan Presidential Election - 2019 </h2></div>"
   return text;
   },
 
