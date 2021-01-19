@@ -32,10 +32,12 @@ function unHighlightFeature(e) {
       color: "000000",
  });
 }
-
+// Function how to disable dragging in Leaflet map
+/*
 $('#map').mousedown( function() {
   map.dragging.disable();
 });
+*/
 
 // Adding color to the map to make it thematic
 function chooseColor(density){
