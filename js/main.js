@@ -2,11 +2,12 @@
 
 let map = L.map('map', {
     measureControl:true,
+    scrollWheelZoom: false,
     zoomSnap: 0.25,
-    zoomControl:true, maxZoom:45, minZoom:1,
+    zoomControl:true, maxZoom:45, minZoom:5,
     center: [34.2553, 67.5875],
     zoomDelta: 0.25,
-    zoom: 6.35,
+    zoom: 6.2,
 })
 
 // Adding the highlighs.
@@ -31,6 +32,10 @@ function unHighlightFeature(e) {
       color: "000000",
  });
 }
+
+$('#map').mousedown( function() {
+  map.dragging.disable();
+});
 
 // Adding color to the map to make it thematic
 function chooseColor(density){
