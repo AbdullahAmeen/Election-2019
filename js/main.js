@@ -55,10 +55,12 @@ let datafile = $.getJSON("data/datafile1.geojson",function(electionData){
       myOnEachFeature,
 
     }).bindPopup(function(layer ){
-      return ("<h4>"+ "<h3>" + "Province : " + layer.feature.properties.Province + "</h3>" + "Total Votes Cast : " + layer.feature.properties.VotesCast + "<br>"+ "Votes Cast for Dr. Abdullah : " + layer.feature.properties.Abdullah + "<br>" + "Votes Cast for Dr. Ghani : " + layer.feature.properties.Ghani +
-       "<br>" + "Votes Cast for Others : " + layer.feature.properties.Others + "<br>"+ "Percentage Dr. Abdullah : " + layer.feature.properties.Perc_Abdul  + "<br>"+ "Percentage Dr. Ghani : "+ layer.feature.properties.Perc_Ghani  + "<br>"+ "Percentange Other : "+ layer.feature.properties.Perc_Other +"</h4>" )
+      return ("<h4>"+ "<h3>" + "Province: " + layer.feature.properties.Province + "</h3>" + "<u>Number of Votes</u>" + "<br>" + "Total Votes Cast : " + layer.feature.properties.VotesCast + "<br>"+ " Dr. Abdullah : " + layer.feature.properties.Abdullah + "<br>" + " Dr. Ghani : " + layer.feature.properties.Ghani +
+       "<br>" + " Other Candidates : " + layer.feature.properties.Others + "<br>"+ "<hr class ='popupspace'>" + "<u>Percentage</u>" + "<br>"+ "Dr. Abdullah : " + Math.round(layer.feature.properties.Perc_Abdul*1000)/10 +"%" + "<br>"+ "Dr. Ghani : " + Math.round(layer.feature.properties.Perc_Ghani*1000)/10 + "%" + "<br>"+ "Other Candidates : " + Math.round(layer.feature.properties.Perc_Other*1000)/10 + "%" +"</h4>" )
         }).addTo(map);
   });
+
+  
 
 // Adding the legend to the map
 var legend = L.control({ position: "bottomright" });
