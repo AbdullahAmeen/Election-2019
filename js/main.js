@@ -5,7 +5,7 @@ let map = L.map('map', {
     scrollWheelZoom: false,
     zoomSnap: 0.25,
     zoomControl:true, maxZoom:45, minZoom:5,
-    center: [34.2553, 67.5875],
+    center: [34.3553, 67.5875],
     zoomDelta: 0.25,
     zoom: 6,
 })
