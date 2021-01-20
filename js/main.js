@@ -7,8 +7,14 @@ let map = L.map('map', {
     zoomControl:true, maxZoom:45, minZoom:5,
     center: [34.2553, 67.5875],
     zoomDelta: 0.25,
-    zoom: 6.2,
+    zoom: 6.4,
 })
+
+
+let baseMap = L.tileLayer ('https://api.mapbox.com/styles/v1/abdullah-1976/ckk4kj56v5h6i17p4okgqpbci/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWJkdWxsYWgtMTk3NiIsImEiOiJja2s0anhpbDMwMXhrMnJuMnNwdHZ6Mmt4In0.Z2nE8aSYetW_EkN5-28_-Q', {
+  attribution: 'Base Map: <a href="https://www.mapbox.com/">Mapbox</a>',
+}).addTo(map);
+
 
 // Adding the highlighs.
 function highlightFeature(e) {
@@ -55,7 +61,7 @@ let datafile = $.getJSON("data/datafile1.geojson",function(electionData){
       style: function(feature){
         var fillColor = chooseColor(feature.properties.VotesCast);
 
-        return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: .8, };
+        return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: 0.8, };
       },
 
       onEachFeature:
