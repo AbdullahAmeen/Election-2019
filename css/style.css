@@ -89,7 +89,7 @@ h5{
   .Title h2 {
     border:1px solid red;
     background-color: rgb(3, 38, 58);
-    opacity: 0.8;
+    opacity: 1;
     color: white;
     border-radius: 8px;
     padding-left: 6px;
