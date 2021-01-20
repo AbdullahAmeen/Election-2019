@@ -3,7 +3,7 @@
 new Chart(document.getElementById("myChart"), {
   type: 'pie',
   data: {
-    labels: ["Dr. Ghani", "Dr. Abdullah", "Other"],
+    labels: [" Dr. Ghani", " Dr. Abdullah", " Other"],
     datasets: [{
       data: [923864,720988,179539],
       backgroundColor: ["#6a1207", "#c1be1e","#ffebab"],

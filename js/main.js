@@ -7,12 +7,12 @@ let map = L.map('map', {
     zoomControl:true, maxZoom:45, minZoom:5,
     center: [34.3553, 67.5875],
     zoomDelta: 0.25,
-    zoom: 6,
+    zoom: 6.2,
 })
 
 
 let baseMap = L.tileLayer ('https://api.mapbox.com/styles/v1/abdullah-1976/ckk4kj56v5h6i17p4okgqpbci/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWJkdWxsYWgtMTk3NiIsImEiOiJja2s0anhpbDMwMXhrMnJuMnNwdHZ6Mmt4In0.Z2nE8aSYetW_EkN5-28_-Q', {
-  attribution: 'Base Map: <a href="https://www.mapbox.com/">Mapbox</a>',
+  attribution: 'Base Map: <a href="https://www.mapbox.com/">Mapbox</a> | Author: <a href="https://www.linkedin.com/in/AbdullahAmeen/">Abdullah Ameen</a>',
 }).addTo(map);
 
 
