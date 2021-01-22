@@ -200,3 +200,8 @@ h5{
   .main{
     box-shadow: 1px -0.3px 1px 1px;
   }
+
+
+  .my-label{
+    background: none;
+  }

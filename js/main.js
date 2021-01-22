@@ -10,10 +10,20 @@ let map = L.map('map', {
     zoom: 6.2,
 })
 
-
 let baseMap = L.tileLayer ('https://api.mapbox.com/styles/v1/abdullah-1976/ckk4kj56v5h6i17p4okgqpbci/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiYWJkdWxsYWgtMTk3NiIsImEiOiJja2s0anhpbDMwMXhrMnJuMnNwdHZ6Mmt4In0.Z2nE8aSYetW_EkN5-28_-Q', {
   attribution: 'Base Map: <a href="https://www.mapbox.com/">Mapbox</a> | Author: <a href="https://www.linkedin.com/in/AbdullahAmeen/">Abdullah Ameen</a>',
 }).addTo(map);
+
+// Adding a few marker as regional provices center
+
+var myIcon = L.icon({
+  iconUrl: 'images/Province_Center.png',
+  iconSize: [9, 9],
+});
+L.marker([34.537205, 69.191150],{icon:myIcon}).bindTooltip("Kabul",{permanent: true, direction: 'right'}).addTo(map),
+L.marker([34.349708, 62.203600],{icon:myIcon}).bindTooltip("Herat",{permanent: true, direction: 'right'}).addTo(map),
+L.marker([34.427256, 70.457220],{icon:myIcon}).bindTooltip("Nangarhar",{permanent: true, direction: 'right'}).addTo(map),
+L.marker([36.708842, 67.110785],{icon:myIcon}).bindTooltip("Balk",{permanent: true, direction: 'right'}).addTo(map),
 
 
 // Adding the highlighs.
@@ -61,7 +71,7 @@ let datafile = $.getJSON("data/datafile1.geojson",function(electionData){
       style: function(feature){
         var fillColor = chooseColor(feature.properties.VotesCast);
 
-        return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: 0.8, };
+        return { color: "#2e0404", weight: 0.8, fillColor: fillColor, fillOpacity: 1, };
       },
 
       onEachFeature:
