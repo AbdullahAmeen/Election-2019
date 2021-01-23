@@ -14,16 +14,80 @@ let baseMap = L.tileLayer ('https://api.mapbox.com/styles/v1/abdullah-1976/ckk4k
   attribution: 'Base Map: <a href="https://www.mapbox.com/">Mapbox</a> | Author: <a href="https://www.linkedin.com/in/AbdullahAmeen/">Abdullah Ameen</a>',
 }).addTo(map);
 
-// Adding a few marker as regional provices center
+// Adding the provincil capital names as a jeoJson data point
+let pointdata = {
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {"Province": "Kabul"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          69.37811870574951,
+          34.49060636127633
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Province": "Nangarhar"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          70.44992566108704,
+          34.24444318762561
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Province": "Herat"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          62.21631646156311,
+          34.34966335370334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Province": "Balkh"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.16387991905212,
+          36.77199879592948
+        ]
+      }
+    }
+  ]
+};
 
-var myIcon = L.icon({
+//Adding the labels to the data points
+let pointLayer = L.geoJSON(null, {
+  pointToLayer: function(feature,latlng){
+    label = String(feature.properties.Province) // .bindTooltip can't use straight 'feature.properties.attribute'
+    return new L.CircleMarker(latlng, {
+      radius: 0.1,
+    }).bindTooltip(label, {permanent: true, direction: "center", className: "my-labels"}).openTooltip();
+    }
+  });
+pointLayer.addData(pointdata);
+map.addLayer(pointLayer);
+
+
+// Adding marker or the provincial capitals.
+let myIcon = L.icon({
   iconUrl: 'images/Province_Center.png',
-  iconSize: [9, 9],
+  iconSize: [8.2, 8],
 });
-L.marker([34.537205, 69.191150],{icon:myIcon}).bindTooltip("Kabul",{permanent: true, direction: 'right'}).addTo(map),
-L.marker([34.349708, 62.203600],{icon:myIcon}).bindTooltip("Herat",{permanent: true, direction: 'right'}).addTo(map),
-L.marker([34.427256, 70.457220],{icon:myIcon}).bindTooltip("Nangarhar",{permanent: true, direction: 'right'}).addTo(map),
-L.marker([36.708842, 67.110785],{icon:myIcon}).bindTooltip("Balk",{permanent: true, direction: 'right'}).addTo(map),
+L.marker([34.677205, 69.191150],{icon:myIcon}).addTo(map),
+L.marker([34.519708, 62.203600],{icon:myIcon}).addTo(map),
+L.marker([34.407256, 70.457220],{icon:myIcon}).addTo(map),
+L.marker([36.948842, 67.110785],{icon:myIcon}).addTo(map),
+
 
 
 // Adding the highlighs.

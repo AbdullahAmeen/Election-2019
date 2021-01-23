@@ -201,7 +201,10 @@ h5{
     box-shadow: 1px -0.3px 1px 1px;
   }
 
-
-  .my-label{
-    background: none;
-  }
+  .leaflet-tooltip {
+    background-color:transparent;
+    border:transparent;
+    color:white;
+    box-shadow: none;
+    padding-top: 8px;
+}
