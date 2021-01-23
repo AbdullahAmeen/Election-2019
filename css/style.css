@@ -50,7 +50,7 @@ h5{
 .legend {
     padding: 6px 8px;
     font: 14px Arial, Helvetica, sans-serif;
-    background: #777a78cc;
+    background:rgb(1, 24, 37);
     border-radius: 8px;
     border:1px solid #d32121;
     line-height: 24px;
@@ -66,6 +66,7 @@ h5{
   .legend i {
     width: 25px;
     height: 18px;
+    border:0.01px solid red;
     border-radius: 2px;
     float: left;
     margin: 0 8px 0 0;
@@ -81,7 +82,7 @@ h5{
   }
 
   .Title {
-    margin-top: -40px;
+    margin-top: -50px;
     display: flex;
     justify-content: center;
   }
@@ -207,4 +208,11 @@ h5{
     color:white;
     box-shadow: none;
     padding-top: 8px;
+}
+
+.kandahar{
+  color:black;
+  padding-top:14px;
+  font-size: 13px;
+  margin-left: -28px;
 }

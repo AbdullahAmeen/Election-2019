@@ -46,8 +46,30 @@ let pointdata = {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          62.21631646156311,
-          34.34966335370334
+          61.9731646156311,
+          34.30966335370334
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Province": "<p class='kandahar'>"+'Kandahar'+"</p>"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          65.737186,
+          31.429007
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {"Province": "Bamian"},
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          67.428672,
+          34.994318
         ]
       }
     },
@@ -57,8 +79,8 @@ let pointdata = {
       "geometry": {
         "type": "Point",
         "coordinates": [
-          67.16387991905212,
-          36.77199879592948
+          67.4387991905212,
+          36.78199879592948
         ]
       }
     }
@@ -81,13 +103,14 @@ map.addLayer(pointLayer);
 // Adding marker or the provincial capitals.
 let myIcon = L.icon({
   iconUrl: 'images/Province_Center.png',
-  iconSize: [8.2, 8],
+  iconSize: [9, 9],
 });
 L.marker([34.677205, 69.191150],{icon:myIcon}).addTo(map),
 L.marker([34.519708, 62.203600],{icon:myIcon}).addTo(map),
 L.marker([34.407256, 70.457220],{icon:myIcon}).addTo(map),
 L.marker([36.948842, 67.110785],{icon:myIcon}).addTo(map),
-
+L.marker([31.629007, 65.737186],{icon:myIcon}).addTo(map),
+L.marker([34.814318, 67.828672],{icon:myIcon}).addTo(map),
 
 
 // Adding the highlighs.
