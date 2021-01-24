@@ -31,12 +31,12 @@ let pointdata = {
     },
     {
       "type": "Feature",
-      "properties": {"Province": "Nangarhar"},
+      "properties": {"Province": "Jalalabad"},
       "geometry": {
         "type": "Point",
         "coordinates": [
           70.44992566108704,
-          34.24444318762561
+          34.22444318762561
         ]
       }
     },
@@ -75,11 +75,11 @@ let pointdata = {
     },
     {
       "type": "Feature",
-      "properties": {"Province": "Balkh"},
+      "properties": {"Province": "Mazari Sharif"},
       "geometry": {
         "type": "Point",
         "coordinates": [
-          67.4387991905212,
+          67.2587991905212,
           36.78199879592948
         ]
       }
