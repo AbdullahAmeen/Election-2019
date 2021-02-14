@@ -140,12 +140,13 @@ h5{
   }
 
   .metadataColumn{
-    font-size: 18px;
+    font-size: 17px;
     border:0.1px solid red;
     border-radius: 5px;
     background: rgb(3, 38, 58);
     color: rgb(240, 240, 240);
     padding: 3px;
+    font-weight: ;
   }
 
   .electionwebsite{
