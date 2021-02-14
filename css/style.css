@@ -82,7 +82,7 @@ h5{
   }
 
   .Title {
-    margin-top: -50px;
+    margin-top: -60px;
     display: flex;
     justify-content: center;
   }
@@ -131,12 +131,21 @@ h5{
 
   .metadata{
     background-color:#eeede0 ;
-    padding-top: 16px;
-    padding-left: 13px;
-    padding-right: 13px;
+    padding-top: 13px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-bottom: 10px;
     border:1px solid #e76d08;
     box-shadow: 1px -0.3px 1px 1px;
+  }
+
+  .metadataColumn{
+    font-size: 18px;
+    border:0.1px solid red;
+    border-radius: 5px;
+    background: rgb(3, 38, 58);
+    color: rgb(240, 240, 240);
+    padding: 3px;
   }
 
   .electionwebsite{
@@ -213,4 +222,10 @@ h5{
 .kandahar{
   padding-top:15px;
   margin-left: -28px;
+}
+
+.provincialResult{
+  color:rgb(241, 4, 4);
+  font-weight: bold;
+  font-size: 15px;
 }
